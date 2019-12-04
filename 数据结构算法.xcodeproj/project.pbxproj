@@ -29,6 +29,7 @@
 		6290439B238B83D200ED5C68 /* LevelOrderPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6290439A238B83D200ED5C68 /* LevelOrderPrinter.m */; };
 		62A9289123977BA900448240 /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A9289023977BA900448240 /* Key.m */; };
 		62A9289423979A4900448240 /* LinkedHashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A9289323979A4900448240 /* LinkedHashMap.m */; };
+		62A928992397B36400448240 /* BinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A928982397B36400448240 /* BinaryHeap.m */; };
 		62D36DD32394FB72000EB858 /* Visitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D36DD22394FB72000EB858 /* Visitor.m */; };
 		62D36DD62394FBD1000EB858 /* ListSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D36DD52394FBD1000EB858 /* ListSet.m */; };
 		62D36DD9239504C9000EB858 /* TreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D36DD8239504C9000EB858 /* TreeSet.m */; };
@@ -82,6 +83,8 @@
 		62A9289023977BA900448240 /* Key.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Key.m; sourceTree = "<group>"; };
 		62A9289223979A4900448240 /* LinkedHashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedHashMap.h; sourceTree = "<group>"; };
 		62A9289323979A4900448240 /* LinkedHashMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkedHashMap.m; sourceTree = "<group>"; };
+		62A928972397B36400448240 /* BinaryHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryHeap.h; sourceTree = "<group>"; };
+		62A928982397B36400448240 /* BinaryHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinaryHeap.m; sourceTree = "<group>"; };
 		62D36DD12394FB72000EB858 /* Visitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visitor.h; sourceTree = "<group>"; };
 		62D36DD22394FB72000EB858 /* Visitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Visitor.m; sourceTree = "<group>"; };
 		62D36DD42394FBD0000EB858 /* ListSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListSet.h; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 				620B23CC235D8CDB00FEFBD7 /* ViewController.m */,
 				62A9288F23977BA900448240 /* Key.h */,
 				62A9289023977BA900448240 /* Key.m */,
+				62A928962397B2E900448240 /* 二叉堆 */,
 				62A928952397AAC300448240 /* 哈希表 */,
 				62D36DDA239513C2000EB858 /* 映射 */,
 				62D36DCD2394FA83000EB858 /* 集合 */,
@@ -213,6 +217,15 @@
 				62A9289323979A4900448240 /* LinkedHashMap.m */,
 			);
 			path = "哈希表";
+			sourceTree = "<group>";
+		};
+		62A928962397B2E900448240 /* 二叉堆 */ = {
+			isa = PBXGroup;
+			children = (
+				62A928972397B36400448240 /* BinaryHeap.h */,
+				62A928982397B36400448240 /* BinaryHeap.m */,
+			);
+			path = "二叉堆";
 			sourceTree = "<group>";
 		};
 		62D36DCD2394FA83000EB858 /* 集合 */ = {
@@ -335,6 +348,7 @@
 				62D36DD32394FB72000EB858 /* Visitor.m in Sources */,
 				628C461E23913D7500F89513 /* BBST.m in Sources */,
 				62DDA74B237BE65E00BC9ECD /* CircleDeque.m in Sources */,
+				62A928992397B36400448240 /* BinaryHeap.m in Sources */,
 				62309EE22376889700E2304C /* CircleLinkedList.m in Sources */,
 				62D36DDD23951440000EB858 /* TreeMap.m in Sources */,
 				628C462123913E4300F89513 /* RBTree.m in Sources */,

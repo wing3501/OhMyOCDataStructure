@@ -24,6 +24,8 @@
 #import "TreeMap.h"
 #import "HashMap.h"
 #import "Key.h"
+#import "BinaryHeap.h"
+
 @interface ViewController ()
 
 @end
@@ -32,7 +34,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self HashMapTest];
+    [self BinaryHeapTest1];
+    
+}
+
+- (void)BinaryHeapTest1 {
+    BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:nil size:0 comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+        if (obj1.integerValue > obj2.integerValue) {
+            return NSOrderedDescending;
+        }else if (obj1.integerValue < obj2.integerValue) {
+            return NSOrderedAscending;
+        }else{
+            return NSOrderedSame;
+        }
+    }];
+    [heap addObject:@68];
+    [heap addObject:@72];
+    [heap addObject:@43];
+    [heap addObject:@50];
+    [heap addObject:@38];
+    [heap addObject:@10];
+    [heap addObject:@90];
+    [heap addObject:@65];
+    LevelOrderPrinter *printer = [LevelOrderPrinter printerWithTree:heap];
+    [printer print];
 }
 
 - (void)HashMapTest {
