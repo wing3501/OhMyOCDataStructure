@@ -58,19 +58,23 @@ NS_ASSUME_NONNULL_BEGIN
 /// 放入哈希表
 /// @param value 值
 /// @param key key
-- (V)setObject:(V)value forKey:(K)key;
+- (V)setObject:(nullable V)value forKey:(nullable K)key;
 
 /// 从哈希表取出
 /// @param key key
-- (nullable V)objectForKey:(K)key;
+- (nullable V)objectForKey:(nullable K)key;
 
 /// 根据key从哈希表删除元素
 /// @param key key
 - (V)remove:(K)key;
 
+/// 是否包含某个key
+/// @param key key
+- (BOOL)containsKey:(nullable V)key;
+
 /// 是否包含某个value
 /// @param value value
-- (BOOL)containsValue:(V)value;
+- (BOOL)containsValue:(nullable V)value;
 
 /// 遍历
 /// @param visitorBlock 遍历回调

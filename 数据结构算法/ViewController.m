@@ -32,7 +32,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self HashMapTest2];
+}
+
+- (void)HashMapTest2 {
+    HashMap *map = [[HashMap alloc]init];
+    [map setObject:@1 forKey:nil];
+    [map setObject:@2 forKey:[[NSObject alloc]init]];
+    [map setObject:@3 forKey:@"jack"];
+    [map setObject:@4 forKey:@10];
+    [map setObject:@5 forKey:[[NSObject alloc]init]];
+    [map setObject:@6 forKey:@"jack"];
+    [map setObject:@7 forKey:@10];
+    [map setObject:@8 forKey:nil];
+    [map setObject:nil forKey:@10];
     
+    NSLog(@"map.size == 5:  %d",map.size == 5);
+    NSLog(@"map.get(null) == 8:  %d",[[map objectForKey:nil] isEqual: @8]);
+    NSLog(@"map.get(\"jack\") == 6:  %d",[[map objectForKey:@"jack"] isEqual: @6]);
+    NSLog(@"map.get(10) == null:  %d",[map objectForKey:@10] == nil);
+    NSLog(@"map.get(new Object()) == null:  %d",[map objectForKey:[[NSObject alloc]init]] == nil);
+    NSLog(@"map.containsKey(10):  %d",[map containsKey:@10]);
+    NSLog(@"map.containsKey(null):  %d",[map containsKey:nil]);
+    NSLog(@"map.containsValue(null):  %d",[map containsValue:nil]);
+    NSLog(@"map.containsValue(1) == false:  %d",[map containsValue:@1] == NO);
 }
 
 - (void)HashMapTest {

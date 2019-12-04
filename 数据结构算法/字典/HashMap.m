@@ -113,10 +113,10 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
     }
 }
 
-/// 放入字典
+/// 放入哈希表
 /// @param value 值
 /// @param key key
-- (id)setObject:(id)value forKey:(id)key {
+- (id)setObject:(nullable id)value forKey:(nullable id)key {
     [self resize];
     
     NSUInteger index = [self indexOfKey:key];
@@ -219,7 +219,7 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
 
 /// 从哈希表取出
 /// @param key key
-- (nullable id)objectForKey:(id)key {
+- (nullable id)objectForKey:(nullable id)key {
     HashMapNode *node = [self nodeOfKey:key];
     return node != nil ? node.value : nil;
 }
@@ -311,13 +311,13 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
 
 /// 是否包含某个key
 /// @param key key
-- (BOOL)containsKey:(id)key {
+- (BOOL)containsKey:(nullable id)key {
     return [self nodeOfKey:key] != nil;
 }
 
 /// 是否包含某个value
 /// @param value value
-- (BOOL)containsValue:(id)value {
+- (BOOL)containsValue:(nullable id)value {
     if (size == 0) return NO;
     Queue<HashMapNode *> *queue = [[Queue alloc]init];
     for (int i = 0; i < table.count; i++) {
@@ -326,7 +326,7 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
         [queue enQueue:table[i]];
         while (!queue.isEmpty) {
             HashMapNode *node = [queue deQueue];
-            if ([value isEqual:node.value]) return YES;
+            if ([value isEqual:node.value] || (value == nil && node.value == nil)) return YES;
             
             if (node.left != nil) {
                 [queue enQueue:node.left];
@@ -421,7 +421,7 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
             node = node.right;
         } else if (h1 < h2) {
             node = node.left;
-        } else if ([k1 isEqual:k2]) {
+        } else if ([k1 isEqual:k2] || (k1 == nil && k2 == nil)) {
             return node;
         }else if (k1 != nil && k2 != nil && self.comparator && [k1 isKindOfClass:[k2 class]] && self.comparator(k1,k2) != NSOrderedSame) {
             //两个key都不为空，且类型相同，有比较器
