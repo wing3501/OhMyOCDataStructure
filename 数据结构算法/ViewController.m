@@ -22,6 +22,8 @@
 #import "ListSet.h"
 #import "TreeSet.h"
 #import "TreeMap.h"
+#import "HashMap.h"
+#import "Key.h"
 @interface ViewController ()
 
 @end
@@ -30,7 +32,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self TreeMapTest];
+    [self HashMapTest];
+}
+
+- (void)HashMapTest {
+    HashMap<Key *,NSNumber *> *map = [[HashMap alloc]init];
+    map.comparator = ^NSComparisonResult(Key *  _Nonnull obj1, Key *  _Nonnull obj2) {
+        if (obj1.value > obj2.value) {
+            return NSOrderedDescending;
+        }else if (obj1.value < obj2.value) {
+            return NSOrderedAscending;
+        }else{
+            return NSOrderedSame;
+        }
+    };
+    for (NSInteger i = 1; i <= 20; i++) {
+        [map setObject:@(i) forKey:[Key keyWithValue:i]];
+    }
+    for (NSInteger i = 5; i <= 7; i++) {
+        [map setObject:@(i + 5) forKey:[Key keyWithValue:i]];
+    }
+    
+    NSLog(@"map.size == 20:  %d",map.size == 20);
+    NSLog(@"map.get(new Key(4)) == 4:  %d",[map objectForKey:[Key keyWithValue:4]].integerValue == 4);
+    NSLog(@"map.get(new Key(5)) == 10:  %d",[map objectForKey:[Key keyWithValue:5]].integerValue == 10);
+    NSLog(@"map.get(new Key(6)) == 11:  %d",[map objectForKey:[Key keyWithValue:6]].integerValue == 11);
+    NSLog(@"map.get(new Key(7)) == 12:  %d",[map objectForKey:[Key keyWithValue:7]].integerValue == 12);
+    NSLog(@"map.get(new Key(8)) == 8:  %d",[map objectForKey:[Key keyWithValue:8]].integerValue == 8);
 }
 
 - (void)TreeMapTest {

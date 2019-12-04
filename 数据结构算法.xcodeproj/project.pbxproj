@@ -23,9 +23,11 @@
 		62309EF12376BCFD00E2304C /* CircleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 62309EF02376BCFD00E2304C /* CircleQueue.m */; };
 		625B9159238F948100D0573C /* BinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9158238F948100D0573C /* BinarySearchTree.m */; };
 		625B924A238FBD8100D0573C /* AVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9249238FBD8100D0573C /* AVLTree.m */; };
+		6278F897239654DA00501965 /* HashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278F896239654DA00501965 /* HashMap.m */; };
 		628C461E23913D7500F89513 /* BBST.m in Sources */ = {isa = PBXBuildFile; fileRef = 628C461D23913D7500F89513 /* BBST.m */; };
 		628C462123913E4300F89513 /* RBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 628C462023913E4300F89513 /* RBTree.m */; };
 		6290439B238B83D200ED5C68 /* LevelOrderPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6290439A238B83D200ED5C68 /* LevelOrderPrinter.m */; };
+		62A9289123977BA900448240 /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A9289023977BA900448240 /* Key.m */; };
 		62D36DD32394FB72000EB858 /* Visitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D36DD22394FB72000EB858 /* Visitor.m */; };
 		62D36DD62394FBD1000EB858 /* ListSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D36DD52394FBD1000EB858 /* ListSet.m */; };
 		62D36DD9239504C9000EB858 /* TreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D36DD8239504C9000EB858 /* TreeSet.m */; };
@@ -67,12 +69,16 @@
 		625B9158238F948100D0573C /* BinarySearchTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinarySearchTree.m; sourceTree = "<group>"; };
 		625B9248238FBD8100D0573C /* AVLTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVLTree.h; sourceTree = "<group>"; };
 		625B9249238FBD8100D0573C /* AVLTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVLTree.m; sourceTree = "<group>"; };
+		6278F895239654DA00501965 /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
+		6278F896239654DA00501965 /* HashMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashMap.m; sourceTree = "<group>"; };
 		628C461C23913D7500F89513 /* BBST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBST.h; sourceTree = "<group>"; };
 		628C461D23913D7500F89513 /* BBST.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBST.m; sourceTree = "<group>"; };
 		628C461F23913E4300F89513 /* RBTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBTree.h; sourceTree = "<group>"; };
 		628C462023913E4300F89513 /* RBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBTree.m; sourceTree = "<group>"; };
 		62904399238B83D200ED5C68 /* LevelOrderPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelOrderPrinter.h; sourceTree = "<group>"; };
 		6290439A238B83D200ED5C68 /* LevelOrderPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelOrderPrinter.m; sourceTree = "<group>"; };
+		62A9288F23977BA900448240 /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
+		62A9289023977BA900448240 /* Key.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Key.m; sourceTree = "<group>"; };
 		62D36DD12394FB72000EB858 /* Visitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Visitor.h; sourceTree = "<group>"; };
 		62D36DD22394FB72000EB858 /* Visitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Visitor.m; sourceTree = "<group>"; };
 		62D36DD42394FBD0000EB858 /* ListSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListSet.h; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 				620B23C9235D8CDB00FEFBD7 /* SceneDelegate.m */,
 				620B23CB235D8CDB00FEFBD7 /* ViewController.h */,
 				620B23CC235D8CDB00FEFBD7 /* ViewController.m */,
+				62A9288F23977BA900448240 /* Key.h */,
+				62A9289023977BA900448240 /* Key.m */,
 				62D36DDA239513C2000EB858 /* 字典 */,
 				62D36DCD2394FA83000EB858 /* 集合 */,
 				622D15452387D2E3004DA534 /* 树 */,
@@ -208,6 +216,8 @@
 			children = (
 				62D36DDB23951440000EB858 /* TreeMap.h */,
 				62D36DDC23951440000EB858 /* TreeMap.m */,
+				6278F895239654DA00501965 /* HashMap.h */,
+				6278F896239654DA00501965 /* HashMap.m */,
 			);
 			path = "字典";
 			sourceTree = "<group>";
@@ -301,9 +311,11 @@
 				6290439B238B83D200ED5C68 /* LevelOrderPrinter.m in Sources */,
 				62309EE72376A18800E2304C /* Stack.m in Sources */,
 				620B23CD235D8CDB00FEFBD7 /* ViewController.m in Sources */,
+				6278F897239654DA00501965 /* HashMap.m in Sources */,
 				62309EEE2376B0B800E2304C /* Deque.m in Sources */,
 				62E6CD2023756F76003F6B46 /* SingleLinkedList.m in Sources */,
 				62309EF12376BCFD00E2304C /* CircleQueue.m in Sources */,
+				62A9289123977BA900448240 /* Key.m in Sources */,
 				62309EEB2376ACED00E2304C /* Queue.m in Sources */,
 				625B924A238FBD8100D0573C /* AVLTree.m in Sources */,
 				62D36DD32394FB72000EB858 /* Visitor.m in Sources */,

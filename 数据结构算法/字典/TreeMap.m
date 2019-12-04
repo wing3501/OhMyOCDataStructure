@@ -35,6 +35,7 @@ static BOOL const BLACK = YES;
     if (self) {
         self.key = key;
         self.value = value;
+        self.parent = parent;
         _color = RED;
     }
     return self;
@@ -81,7 +82,7 @@ static BOOL const BLACK = YES;
     NSUInteger size;//元素的数量
     TreeMapNode *root;//根节点
 }
-/// 比较器
+/// 比较器 比较key的大小
 @property (nonatomic, copy) NSComparator comparator;
 @end
 
