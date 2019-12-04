@@ -113,6 +113,10 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
     }
 }
 
+- (HashMapNode *)createNodeWithKey:(id)key value:(id)value parent:(HashMapNode *)parent {
+    return [HashMapNode nodeWithKey:key value:value parent:parent];
+}
+
 /// 放入哈希表
 /// @param value 值
 /// @param key key
@@ -123,7 +127,7 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
     // 取出index位置的红黑树根节点
     HashMapNode *root = table[index];
     if ([root isEqual:null]) {
-        root = [HashMapNode nodeWithKey:key value:value parent:nil];
+        root = [self createNodeWithKey:key value:value parent:nil];
         table[index] = root;
         size++;
         [self fixAfterPut:root];
@@ -204,7 +208,7 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
     } while (node != nil);
     
     // 看看插入到父节点的哪个位置
-    HashMapNode *newNode = [HashMapNode nodeWithKey:key value:value parent:parent];
+    HashMapNode *newNode = [self createNodeWithKey:key value:value parent:parent];
     if (cmp == NSOrderedDescending) {
         parent.right = newNode;
     } else {
@@ -365,8 +369,8 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
 }
 
 /// 删除后处理子类重写
-/// @param willNode <#willNode description#>
-/// @param removedNode <#removedNode description#>
+/// @param willNode 将要删除的节点
+/// @param removedNode 真正被删除的节点
 - (void)afterRemoveWithWillNode:(HashMapNode *)willNode removedNode:(HashMapNode *)removedNode {}
 
 /// 扩容
