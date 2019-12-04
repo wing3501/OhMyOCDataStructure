@@ -152,6 +152,9 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
         }else if (k1 != nil && k2 != nil && self.comparator && [k1 isKindOfClass:[k2 class]] && self.comparator(k1,k2) != NSOrderedSame) {
             //两个key都不为空，且类型相同，有比较器
             cmp = self.comparator(k1,k2);
+        }else if (k1 != nil && k2 != nil && [k1 isKindOfClass:[k2 class]] && [k1 respondsToSelector:@selector(compare:)] && [k1 compare:k2] != NSOrderedSame){
+            //两个key都不为空，且类型相同，支持比较
+            cmp = [k1 compare:k2];
         } else if (searched) {// 已经扫描了
             //用key自己的hash进行比较
             if ([k1 hash] > [k2 hash]) {
@@ -424,6 +427,10 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
             //两个key都不为空，且类型相同，有比较器
             cmp = self.comparator(k1,k2);
             node = cmp > 0 ? node.right : node.left;
+        }else if (k1 != nil && k2 != nil && [k1 isKindOfClass:[k2 class]] && [k1 respondsToSelector:@selector(compare:)] && [k1 compare:k2] != NSOrderedSame){
+            //两个key都不为空，且类型相同，支持比较
+            cmp = [k1 compare:k2];
+            node = cmp > 0 ? node.right : node.left;
         }else {
             if (node.right != nil) {
                 result = [self nodeWithNode:node.right key:k1];
@@ -497,6 +504,9 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
         } else if (k1 != nil && k2 != nil && self.comparator && [k1 isKindOfClass:[k2 class]] && self.comparator(k1,k2) != NSOrderedSame) {
             //两个key都不为空，且类型相同，有比较器
             cmp = self.comparator(k1,k2);
+        } else if (k1 != nil && k2 != nil && [k1 isKindOfClass:[k2 class]] && [k1 respondsToSelector:@selector(compare:)] && [k1 compare:k2] != NSOrderedSame){
+            //两个key都不为空，且类型相同，支持比较
+            cmp = [k1 compare:k2];
         } else {
             //实在比不出来，用key自己的hash进行比较
             if ([k1 hash] > [k2 hash]) {

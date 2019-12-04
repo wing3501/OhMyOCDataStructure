@@ -35,4 +35,14 @@
     }
     return ((Key *)object).value == self.value;
 }
+
+- (NSComparisonResult)compare:(Key *)other {
+    if (self.value > other.value) {
+        return NSOrderedDescending;
+    }else if (self.value < other.value) {
+        return NSOrderedAscending;
+    }else{
+        return NSOrderedSame;
+    }
+}
 @end

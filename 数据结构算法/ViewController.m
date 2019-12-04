@@ -32,20 +32,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self HashMapTest];
+    
 }
 
 - (void)HashMapTest {
     HashMap<Key *,NSNumber *> *map = [[HashMap alloc]init];
-    map.comparator = ^NSComparisonResult(Key *  _Nonnull obj1, Key *  _Nonnull obj2) {
-        if (obj1.value > obj2.value) {
-            return NSOrderedDescending;
-        }else if (obj1.value < obj2.value) {
-            return NSOrderedAscending;
-        }else{
-            return NSOrderedSame;
-        }
-    };
+//    map.comparator = ^NSComparisonResult(Key *  _Nonnull obj1, Key *  _Nonnull obj2) {
+//        if (obj1.value > obj2.value) {
+//            return NSOrderedDescending;
+//        }else if (obj1.value < obj2.value) {
+//            return NSOrderedAscending;
+//        }else{
+//            return NSOrderedSame;
+//        }
+//    };
     for (NSInteger i = 1; i <= 20; i++) {
         [map setObject:@(i) forKey:[Key keyWithValue:i]];
     }
