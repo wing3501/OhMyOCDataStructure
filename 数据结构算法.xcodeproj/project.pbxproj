@@ -134,7 +134,8 @@
 				620B23CC235D8CDB00FEFBD7 /* ViewController.m */,
 				62A9288F23977BA900448240 /* Key.h */,
 				62A9289023977BA900448240 /* Key.m */,
-				62D36DDA239513C2000EB858 /* 字典 */,
+				62A928952397AAC300448240 /* 哈希表 */,
+				62D36DDA239513C2000EB858 /* 映射 */,
 				62D36DCD2394FA83000EB858 /* 集合 */,
 				622D15452387D2E3004DA534 /* 树 */,
 				62309EE82376AC8100E2304C /* 队列 */,
@@ -203,6 +204,17 @@
 			path = "队列";
 			sourceTree = "<group>";
 		};
+		62A928952397AAC300448240 /* 哈希表 */ = {
+			isa = PBXGroup;
+			children = (
+				6278F895239654DA00501965 /* HashMap.h */,
+				6278F896239654DA00501965 /* HashMap.m */,
+				62A9289223979A4900448240 /* LinkedHashMap.h */,
+				62A9289323979A4900448240 /* LinkedHashMap.m */,
+			);
+			path = "哈希表";
+			sourceTree = "<group>";
+		};
 		62D36DCD2394FA83000EB858 /* 集合 */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,17 +226,13 @@
 			path = "集合";
 			sourceTree = "<group>";
 		};
-		62D36DDA239513C2000EB858 /* 字典 */ = {
+		62D36DDA239513C2000EB858 /* 映射 */ = {
 			isa = PBXGroup;
 			children = (
 				62D36DDB23951440000EB858 /* TreeMap.h */,
 				62D36DDC23951440000EB858 /* TreeMap.m */,
-				6278F895239654DA00501965 /* HashMap.h */,
-				6278F896239654DA00501965 /* HashMap.m */,
-				62A9289223979A4900448240 /* LinkedHashMap.h */,
-				62A9289323979A4900448240 /* LinkedHashMap.m */,
 			);
-			path = "字典";
+			path = "映射";
 			sourceTree = "<group>";
 		};
 		62E6CC2A23755FB1003F6B46 /* 链表 */ = {
