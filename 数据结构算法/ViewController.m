@@ -32,11 +32,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self HashMapTest2];
+    [self HashMapTest];
 }
 
-- (void)HashMapTest2 {
-    HashMap *map = [[HashMap alloc]init];
+- (void)HashMapTest {
+    HashMap<Key *,NSNumber *> *map = [[HashMap alloc]init];
+//    [self HashMapTest1:map];
+//    [self HashMapTest2:map];
+    [self HashMapTest3:map];
+}
+
+- (void)HashMapTest3:(HashMap *)map {
+    [map setObject:@1 forKey:@"jack"];
+    [map setObject:@2 forKey:@"rose"];
+    [map setObject:@3 forKey:@"jim"];
+    [map setObject:@4 forKey:@"jake"];
+    [map remove:@"jack"];
+    [map remove:@"jim"];
+    for (int i = 1; i <= 10; i++) {
+        [map setObject:@(i) forKey:[NSString stringWithFormat:@"test%d",i]];
+        [map setObject:@(i) forKey:[Key keyWithValue:i]];
+    }
+    for (int i = 5; i <= 7; i++) {
+        NSLog(@"map.remove(new Key(%d)) == %d    %@",i,i,[map remove:[Key keyWithValue:i]]);
+    }
+    for (int i = 1; i <= 3; i++) {
+        [map setObject:@(i + 5) forKey:[Key keyWithValue:i]];
+    }
+    
+    NSLog(@"map.size() == 19  %d",map.size == 19);
+    NSLog(@"map.get(new Key(1)) == 6  %@",[map objectForKey:[Key keyWithValue:1]]);
+    NSLog(@"map.get(new Key(2)) == 7  %@",[map objectForKey:[Key keyWithValue:2]]);
+    NSLog(@"map.get(new Key(3)) == 8  %@",[map objectForKey:[Key keyWithValue:3]]);
+    NSLog(@"map.get(new Key(4)) == 4  %@",[map objectForKey:[Key keyWithValue:4]]);
+    NSLog(@"map.get(new Key(5)) == null  %@",[map objectForKey:[Key keyWithValue:5]]);
+    NSLog(@"map.get(new Key(6)) == null  %@",[map objectForKey:[Key keyWithValue:6]]);
+    NSLog(@"map.get(new Key(7)) == null  %@",[map objectForKey:[Key keyWithValue:7]]);
+    NSLog(@"map.get(new Key(8)) == 8  %@",[map objectForKey:[Key keyWithValue:8]]);
+    NSLog(@"-------------------------");
+    [map traversal:^BOOL(id  _Nonnull key, id  _Nonnull value) {
+        NSLog(@"%@_%@",key,value);
+        return NO;
+    }];
+}
+
+- (void)HashMapTest2:(HashMap *)map {
     [map setObject:@1 forKey:nil];
     [map setObject:@2 forKey:[[NSObject alloc]init]];
     [map setObject:@3 forKey:@"jack"];
@@ -58,17 +98,7 @@
     NSLog(@"map.containsValue(1) == false:  %d",[map containsValue:@1] == NO);
 }
 
-- (void)HashMapTest {
-    HashMap<Key *,NSNumber *> *map = [[HashMap alloc]init];
-//    map.comparator = ^NSComparisonResult(Key *  _Nonnull obj1, Key *  _Nonnull obj2) {
-//        if (obj1.value > obj2.value) {
-//            return NSOrderedDescending;
-//        }else if (obj1.value < obj2.value) {
-//            return NSOrderedAscending;
-//        }else{
-//            return NSOrderedSame;
-//        }
-//    };
+- (void)HashMapTest1:(HashMap *)map {
     for (NSInteger i = 1; i <= 20; i++) {
         [map setObject:@(i) forKey:[Key keyWithValue:i]];
     }
@@ -77,11 +107,11 @@
     }
     
     NSLog(@"map.size == 20:  %d",map.size == 20);
-    NSLog(@"map.get(new Key(4)) == 4:  %d",[map objectForKey:[Key keyWithValue:4]].integerValue == 4);
-    NSLog(@"map.get(new Key(5)) == 10:  %d",[map objectForKey:[Key keyWithValue:5]].integerValue == 10);
-    NSLog(@"map.get(new Key(6)) == 11:  %d",[map objectForKey:[Key keyWithValue:6]].integerValue == 11);
-    NSLog(@"map.get(new Key(7)) == 12:  %d",[map objectForKey:[Key keyWithValue:7]].integerValue == 12);
-    NSLog(@"map.get(new Key(8)) == 8:  %d",[map objectForKey:[Key keyWithValue:8]].integerValue == 8);
+    NSLog(@"map.get(new Key(4)) == 4:  %d",[[map objectForKey:[Key keyWithValue:4]] integerValue] == 4);
+    NSLog(@"map.get(new Key(5)) == 10:  %d",[[map objectForKey:[Key keyWithValue:5]] integerValue] == 10);
+    NSLog(@"map.get(new Key(6)) == 11:  %d",[[map objectForKey:[Key keyWithValue:6]] integerValue] == 11);
+    NSLog(@"map.get(new Key(7)) == 12:  %d",[[map objectForKey:[Key keyWithValue:7]] integerValue] == 12);
+    NSLog(@"map.get(new Key(8)) == 8:  %d",[[map objectForKey:[Key keyWithValue:8]] integerValue] == 8);
 }
 
 - (void)TreeMapTest {
