@@ -23,6 +23,8 @@
 		62309EF12376BCFD00E2304C /* CircleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 62309EF02376BCFD00E2304C /* CircleQueue.m */; };
 		625B9159238F948100D0573C /* BinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9158238F948100D0573C /* BinarySearchTree.m */; };
 		625B924A238FBD8100D0573C /* AVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9249238FBD8100D0573C /* AVLTree.m */; };
+		6267793F2398B05E00EF0480 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6267793E2398B05E00EF0480 /* PriorityQueue.m */; };
+		626779422398B64900EF0480 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 626779412398B64900EF0480 /* Person.m */; };
 		6278F897239654DA00501965 /* HashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278F896239654DA00501965 /* HashMap.m */; };
 		628C461E23913D7500F89513 /* BBST.m in Sources */ = {isa = PBXBuildFile; fileRef = 628C461D23913D7500F89513 /* BBST.m */; };
 		628C462123913E4300F89513 /* RBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 628C462023913E4300F89513 /* RBTree.m */; };
@@ -71,6 +73,10 @@
 		625B9158238F948100D0573C /* BinarySearchTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinarySearchTree.m; sourceTree = "<group>"; };
 		625B9248238FBD8100D0573C /* AVLTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVLTree.h; sourceTree = "<group>"; };
 		625B9249238FBD8100D0573C /* AVLTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVLTree.m; sourceTree = "<group>"; };
+		6267793D2398B05E00EF0480 /* PriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
+		6267793E2398B05E00EF0480 /* PriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
+		626779402398B64900EF0480 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		626779412398B64900EF0480 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		6278F895239654DA00501965 /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
 		6278F896239654DA00501965 /* HashMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashMap.m; sourceTree = "<group>"; };
 		628C461C23913D7500F89513 /* BBST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBST.h; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 				620B23CC235D8CDB00FEFBD7 /* ViewController.m */,
 				62A9288F23977BA900448240 /* Key.h */,
 				62A9289023977BA900448240 /* Key.m */,
+				626779402398B64900EF0480 /* Person.h */,
+				626779412398B64900EF0480 /* Person.m */,
+				6267793C2398B03800EF0480 /* 优先级队列 */,
 				62A928962397B2E900448240 /* 二叉堆 */,
 				62A928952397AAC300448240 /* 哈希表 */,
 				62D36DDA239513C2000EB858 /* 映射 */,
@@ -206,6 +215,15 @@
 				62DDA74A237BE65E00BC9ECD /* CircleDeque.m */,
 			);
 			path = "队列";
+			sourceTree = "<group>";
+		};
+		6267793C2398B03800EF0480 /* 优先级队列 */ = {
+			isa = PBXGroup;
+			children = (
+				6267793D2398B05E00EF0480 /* PriorityQueue.h */,
+				6267793E2398B05E00EF0480 /* PriorityQueue.m */,
+			);
+			path = "优先级队列";
 			sourceTree = "<group>";
 		};
 		62A928952397AAC300448240 /* 哈希表 */ = {
@@ -334,6 +352,7 @@
 			files = (
 				62D36DD9239504C9000EB858 /* TreeSet.m in Sources */,
 				62D36DD62394FBD1000EB858 /* ListSet.m in Sources */,
+				626779422398B64900EF0480 /* Person.m in Sources */,
 				6290439B238B83D200ED5C68 /* LevelOrderPrinter.m in Sources */,
 				62309EE72376A18800E2304C /* Stack.m in Sources */,
 				620B23CD235D8CDB00FEFBD7 /* ViewController.m in Sources */,
@@ -348,6 +367,7 @@
 				62D36DD32394FB72000EB858 /* Visitor.m in Sources */,
 				628C461E23913D7500F89513 /* BBST.m in Sources */,
 				62DDA74B237BE65E00BC9ECD /* CircleDeque.m in Sources */,
+				6267793F2398B05E00EF0480 /* PriorityQueue.m in Sources */,
 				62A928992397B36400448240 /* BinaryHeap.m in Sources */,
 				62309EE22376889700E2304C /* CircleLinkedList.m in Sources */,
 				62D36DDD23951440000EB858 /* TreeMap.m in Sources */,

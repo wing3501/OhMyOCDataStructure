@@ -25,7 +25,8 @@
 #import "HashMap.h"
 #import "Key.h"
 #import "BinaryHeap.h"
-
+#import "PriorityQueue.h"
+#import "Person.h"
 @interface ViewController ()
 
 @end
@@ -34,7 +35,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self HashMapTest4];
+    [self PriorityQueueTest];
+}
+
+- (void)PriorityQueueTest {
+    PriorityQueue<Person *> *queue = [PriorityQueue queueWithComparator:^NSComparisonResult(Person *  _Nonnull obj1, Person *  _Nonnull obj2) {
+        if (obj1.boneBreak > obj2.boneBreak) {
+            return NSOrderedDescending;
+        }else if (obj1.boneBreak < obj2.boneBreak) {
+            return NSOrderedAscending;
+        }else{
+            return NSOrderedSame;
+        }
+    }];
+    [queue enQueue:[Person personWithName:@"Jack" boneBreak:2]];
+    [queue enQueue:[Person personWithName:@"Rose" boneBreak:10]];
+    [queue enQueue:[Person personWithName:@"Jake" boneBreak:5]];
+    [queue enQueue:[Person personWithName:@"James" boneBreak:15]];
+    while (!queue.isEmpty) {
+        NSLog(@"%@",[queue deQueue]);
+    }
 }
 
 - (void)BinaryHeapTest5 {
