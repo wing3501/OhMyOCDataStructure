@@ -406,7 +406,7 @@ static float const DEFAULT_LOAD_FACTOR = 0.75f;//装填因子
 /// @param key key
 - (HashMapNode *)nodeOfKey:(id)key {
     HashMapNode *root = table[[self indexOfKey:key]];
-    return root == nil ? nil : [self nodeWithNode:root key:key];
+    return [root isEqual:null] ? nil : [self nodeWithNode:root key:key];
 }
 
 /// 查找key对应的节点

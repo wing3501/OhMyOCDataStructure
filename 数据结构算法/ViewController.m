@@ -27,6 +27,7 @@
 #import "BinaryHeap.h"
 #import "PriorityQueue.h"
 #import "Person.h"
+#import "Trie.h"
 @interface ViewController ()
 
 @end
@@ -35,7 +36,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self PriorityQueueTest];
+    [self TrieTest];
+}
+
+- (void)TrieTest {
+    Trie *trie = [[Trie alloc]init];
+    [trie addWithKey:@"cat" value:@1];
+    [trie addWithKey:@"dog" value:@2];
+    [trie addWithKey:@"catalog" value:@3];
+    [trie addWithKey:@"cast" value:@4];
+    [trie addWithKey:@"xxxx" value:@5];
+    
+    NSLog(@"trie.size() == 5: %ld",trie.size);
+    NSLog(@"trie.startsWith(\"do\"): %d",[trie startsWith:@"do"]);
+    NSLog(@"trie.startsWith(\"c\"): %d",[trie startsWith:@"c"]);
+    NSLog(@"trie.startsWith(\"ca\"): %d",[trie startsWith:@"ca"]);
+    NSLog(@"trie.startsWith(\"cat\"): %d",[trie startsWith:@"cat"]);
+    NSLog(@"trie.startsWith(\"cata\"): %d",[trie startsWith:@"cata"]);
+    NSLog(@"!trie.startsWith(\"hehe\"): %d",![trie startsWith:@"hehe"]);
+    NSLog(@"trie.get(\"xxxx\") == 5: %@",[trie get:@"xxxx"]);
 }
 
 - (void)PriorityQueueTest {

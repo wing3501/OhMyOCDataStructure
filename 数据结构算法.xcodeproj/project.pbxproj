@@ -25,6 +25,7 @@
 		625B924A238FBD8100D0573C /* AVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9249238FBD8100D0573C /* AVLTree.m */; };
 		6267793F2398B05E00EF0480 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6267793E2398B05E00EF0480 /* PriorityQueue.m */; };
 		626779422398B64900EF0480 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 626779412398B64900EF0480 /* Person.m */; };
+		626779462398CE5900EF0480 /* Trie.m in Sources */ = {isa = PBXBuildFile; fileRef = 626779452398CE5900EF0480 /* Trie.m */; };
 		6278F897239654DA00501965 /* HashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278F896239654DA00501965 /* HashMap.m */; };
 		628C461E23913D7500F89513 /* BBST.m in Sources */ = {isa = PBXBuildFile; fileRef = 628C461D23913D7500F89513 /* BBST.m */; };
 		628C462123913E4300F89513 /* RBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 628C462023913E4300F89513 /* RBTree.m */; };
@@ -77,6 +78,8 @@
 		6267793E2398B05E00EF0480 /* PriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
 		626779402398B64900EF0480 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		626779412398B64900EF0480 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		626779442398CE5900EF0480 /* Trie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trie.h; sourceTree = "<group>"; };
+		626779452398CE5900EF0480 /* Trie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Trie.m; sourceTree = "<group>"; };
 		6278F895239654DA00501965 /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
 		6278F896239654DA00501965 /* HashMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashMap.m; sourceTree = "<group>"; };
 		628C461C23913D7500F89513 /* BBST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBST.h; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 				62A9289023977BA900448240 /* Key.m */,
 				626779402398B64900EF0480 /* Person.h */,
 				626779412398B64900EF0480 /* Person.m */,
+				626779432398CE2A00EF0480 /* Trie */,
 				6267793C2398B03800EF0480 /* 优先级队列 */,
 				62A928962397B2E900448240 /* 二叉堆 */,
 				62A928952397AAC300448240 /* 哈希表 */,
@@ -224,6 +228,15 @@
 				6267793E2398B05E00EF0480 /* PriorityQueue.m */,
 			);
 			path = "优先级队列";
+			sourceTree = "<group>";
+		};
+		626779432398CE2A00EF0480 /* Trie */ = {
+			isa = PBXGroup;
+			children = (
+				626779442398CE5900EF0480 /* Trie.h */,
+				626779452398CE5900EF0480 /* Trie.m */,
+			);
+			path = Trie;
 			sourceTree = "<group>";
 		};
 		62A928952397AAC300448240 /* 哈希表 */ = {
@@ -356,6 +369,7 @@
 				6290439B238B83D200ED5C68 /* LevelOrderPrinter.m in Sources */,
 				62309EE72376A18800E2304C /* Stack.m in Sources */,
 				620B23CD235D8CDB00FEFBD7 /* ViewController.m in Sources */,
+				626779462398CE5900EF0480 /* Trie.m in Sources */,
 				6278F897239654DA00501965 /* HashMap.m in Sources */,
 				62309EEE2376B0B800E2304C /* Deque.m in Sources */,
 				62A9289423979A4900448240 /* LinkedHashMap.m in Sources */,
