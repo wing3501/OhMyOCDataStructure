@@ -34,12 +34,128 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self BinaryHeapTest1];
+    [self HashMapTest4];
+}
+
+- (void)BinaryHeapTest5 {
+    NSMutableArray<NSNumber *> *data = @[].mutableCopy;
+    for (NSInteger i = 0; i < 10000; i++) {
+        [data addObject:@(i)];
+    }
     
+    NSInteger k = 100;
+    //一般做法
+    
+    [self costTime:^{
+        NSMutableArray<NSNumber *> *result = @[].mutableCopy;
+        for (NSInteger i = 0; i < data.count; i++) {
+            if (result.count < k) {
+                [result addObject:data[i]];
+            }else{
+                NSInteger minIndex = 0;
+                NSNumber *minValue = result[0];
+                for (NSInteger j = 1; j < result.count; j++) {
+                    if (result[j].integerValue < minValue.integerValue) {
+                        minIndex = j;
+                        minValue = result[j];
+                    }
+                }
+                if (data[i].integerValue > minValue.integerValue) {
+                    result[minIndex] = data[i];
+                }
+            }
+        }
+    }];
+    
+    
+//    NSLog(@"%@",result);
+    
+    [self costTime:^{
+        BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:nil comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+            if (obj1.integerValue > obj2.integerValue) {
+                return NSOrderedAscending;
+            }else if (obj1.integerValue < obj2.integerValue) {
+                return NSOrderedDescending;
+            }else{
+                return NSOrderedSame;
+            }
+        }];
+        
+        for (int i = 0; i < data.count; i++) {
+            if (heap.size < k) { // 前k个数添加到小顶堆
+                [heap addObject:data[i]];// logk
+            } else if (data[i].integerValue > [heap get].integerValue) { // 如果是第k + 1个数，并且大于堆顶元素
+                [heap replaceObject:data[i]];// logk
+            }
+        }
+    }];
+    
+//    LevelOrderPrinter *printer = [LevelOrderPrinter printerWithTree:heap];
+//    [printer print];
+}
+
+- (void)BinaryHeapTest4 {
+    // 新建一个小顶堆
+    BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:nil comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+        if (obj1.integerValue > obj2.integerValue) {
+            return NSOrderedAscending;
+        }else if (obj1.integerValue < obj2.integerValue) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedSame;
+        }
+    }];
+    
+    // 找出最大的前k个数
+    NSInteger k = 3;
+    NSArray<NSNumber *> *data = @[@51, @30, @39, @92, @74, @25, @16, @93,
+    @91, @19, @54, @47, @73, @62, @76, @63, @300, @35, @18,
+    @90, @6, @65, @49, @3, @26, @61, @21, @48, @100, @200];
+    for (int i = 0; i < data.count; i++) {
+        if (heap.size < k) { // 前k个数添加到小顶堆
+            [heap addObject:data[i]];// logk
+        } else if (data[i].integerValue > [heap get].integerValue) { // 如果是第k + 1个数，并且大于堆顶元素
+            [heap replaceObject:data[i]];// logk
+        }
+    }
+    LevelOrderPrinter *printer = [LevelOrderPrinter printerWithTree:heap];
+    [printer print];
+}
+
+- (void)BinaryHeapTest3 {
+    //小顶堆
+    NSArray *array = @[@88, @44, @53, @41, @16, @6, @70, @18, @85, @98, @81, @23, @36, @43, @37];
+    BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:array.mutableCopy comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+        if (obj1.integerValue > obj2.integerValue) {
+            return NSOrderedAscending;
+        }else if (obj1.integerValue < obj2.integerValue) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedSame;
+        }
+    }];
+    LevelOrderPrinter *printer = [LevelOrderPrinter printerWithTree:heap];
+    [printer print];
+}
+
+- (void)BinaryHeapTest2 {
+    //批量建堆
+    NSArray *array = @[@88, @44, @53, @41, @16, @6, @70, @18, @85, @98, @81, @23, @36, @43, @37];
+    BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:array.mutableCopy comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+        if (obj1.integerValue > obj2.integerValue) {
+            return NSOrderedDescending;
+        }else if (obj1.integerValue < obj2.integerValue) {
+            return NSOrderedAscending;
+        }else{
+            return NSOrderedSame;
+        }
+    }];
+    LevelOrderPrinter *printer = [LevelOrderPrinter printerWithTree:heap];
+    [printer print];
 }
 
 - (void)BinaryHeapTest1 {
-    BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:nil size:0 comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+    BinaryHeap<NSNumber *> *heap = [BinaryHeap heapWithElements:nil comparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
         if (obj1.integerValue > obj2.integerValue) {
             return NSOrderedDescending;
         }else if (obj1.integerValue < obj2.integerValue) {
@@ -65,6 +181,35 @@
 //    [self HashMapTest1:map];
 //    [self HashMapTest2:map];
     [self HashMapTest3:map];
+}
+
+- (void)HashMapTest4 {
+    NSMutableArray<NSNumber *> *data = @[].mutableCopy;
+    for (NSInteger i = 0; i < 1000; i++) {
+        [data addObject:@(i)];
+    }
+    
+    [self costTime:^{
+        TreeMap<NSNumber *,NSNumber *> *treeMap = [TreeMap mapWithComparator:^NSComparisonResult(NSString *  _Nonnull key1, NSString *  _Nonnull key2) {
+            return [key1 compare:key2];
+        }];
+        for (NSInteger i = 0; i < data.count; i++) {
+            [treeMap setObject:data[i] forKey:@(i)];
+        }
+        for (NSInteger i = 0; i < data.count; i++) {
+            [treeMap remove:@(i)];
+        }
+    }];
+    
+//    [self costTime:^{
+//        HashMap<NSNumber *,NSNumber *> *hashMap = [[HashMap alloc]init];
+//        for (NSInteger i = 0; i < data.count; i++) {
+//            [hashMap setObject:data[i] forKey:@(i)];
+//        }
+//        for (NSInteger i = 0; i < data.count; i++) {
+//            [hashMap remove:@(i)];
+//        }
+//    }];
 }
 
 - (void)HashMapTest3:(HashMap *)map {

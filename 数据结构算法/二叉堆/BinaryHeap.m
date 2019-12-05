@@ -20,20 +20,20 @@
 @end
 @implementation BinaryHeap
 
-- (instancetype)initWithElements:(NSMutableArray *)elements size:(NSUInteger)size comparator:(NSComparator)comparator {
+- (instancetype)initWithElements:(NSMutableArray *)elements comparator:(NSComparator)comparator {
     self = [super init];
     if (self) {
+        _comparator = comparator;
         if (elements == nil || elements.count == 0) {
-            _comparator = comparator;
             currentCapacity = 10;
             self->elements = [NSMutableArray arrayWithCapacity:currentCapacity];
             null = [NSNull null];
             [self resetArray];
         }else {
-            self->size = size;
-            currentCapacity = MAX(size, 10);
+            self->size = elements.count;
+            currentCapacity = MAX(elements.count, 10);
             self->elements = [NSMutableArray arrayWithCapacity:currentCapacity];
-            for (NSUInteger i = 0; i < size; i++) {
+            for (NSUInteger i = 0; i < elements.count; i++) {
                 self->elements[i] = elements[i];
             }
             [self heapify];
@@ -42,8 +42,8 @@
     return self;
 }
 
-+ (instancetype)heapWithElements:(nullable NSMutableArray *)elements size:(NSUInteger)size comparator:(NSComparator)comparator {
-    return [[self alloc]initWithElements:elements size:size comparator:comparator];
++ (instancetype)heapWithElements:(nullable NSMutableArray *)elements comparator:(NSComparator)comparator {
+    return [[self alloc]initWithElements:elements comparator:comparator];
 }
 
 /// 元素的数量
@@ -71,8 +71,6 @@
     [self ensureCapacity:size + 1];
     elements[size++] = anObject;
     [self siftUp:size - 1];
-    
-    NSLog(@"---------------------\n %@",elements);
 }
 
 /// 获得堆顶元素
@@ -171,7 +169,7 @@
 /// 批量建堆
 - (void)heapify {
     // 自下而上的下滤
-    for (NSUInteger i = (size >> 1) - 1; i >= 0; i--) {
+    for (NSInteger i = (size >> 1) - 1; i >= 0; i--) {
         [self siftDown:i];
     }
 }

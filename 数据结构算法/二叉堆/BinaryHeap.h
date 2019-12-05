@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BinaryHeap<ObjectType> : NSObject<BinaryTreeInfo>
 
-+ (instancetype)heapWithElements:(nullable NSMutableArray *)elements size:(NSUInteger)size comparator:(NSComparator)comparator;
++ (instancetype)heapWithElements:(nullable NSMutableArray *)elements comparator:(NSComparator)comparator;
 
 /// 元素的数量
 - (NSUInteger)size;
